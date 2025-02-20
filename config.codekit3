@@ -9,194 +9,114 @@
   ],
   "creatorBuild" : "34680",
   "files" : {
-    "\/icons\/fill\/rower_fill.svg" : {
-      "ft" : 2097152,
-      "miP" : 0,
-      "oA" : 2,
-      "oAP" : "\/icons\/fill\/rower_fill.svg",
-      "oF" : 0,
-      "opt" : 0,
-      "plM" : 52780316221407,
-      "prP" : 0
+    "\/.github\/workflows\/update-icons.yml" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/.github\/workflows\/update-icons.yml",
+      "oF" : 0
     },
-    "\/icons\/fill\/treadmill_fill.svg" : {
-      "ft" : 2097152,
-      "miP" : 0,
-      "oA" : 2,
-      "oAP" : "\/icons\/fill\/treadmill_fill.svg",
-      "oF" : 0,
-      "opt" : 0,
-      "plM" : 52780316221407,
-      "prP" : 0
-    },
-    "\/icons\/light\/rower_light.svg" : {
-      "ft" : 2097152,
-      "miP" : 0,
-      "oA" : 2,
-      "oAP" : "\/icons\/light\/rower_light.svg",
-      "oF" : 0,
-      "opt" : 0,
-      "plM" : 52780316221407,
-      "prP" : 0
-    },
-    "\/icons\/light\/treadmill_light.svg" : {
-      "ft" : 2097152,
-      "miP" : 0,
-      "oA" : 2,
-      "oAP" : "\/icons\/light\/treadmill_light.svg",
-      "oF" : 0,
-      "opt" : 0,
-      "plM" : 52780316221407,
-      "prP" : 0
-    },
-    "\/icons\/regular\/rower_regular.svg" : {
-      "ft" : 2097152,
-      "miP" : 0,
-      "oA" : 2,
-      "oAP" : "\/icons\/regular\/rower_regular.svg",
-      "oF" : 0,
-      "opt" : 0,
-      "plM" : 52780316221407,
-      "prP" : 0
-    },
-    "\/icons\/regular\/treadmill_regular.svg" : {
-      "ft" : 2097152,
-      "miP" : 0,
-      "oA" : 2,
-      "oAP" : "\/icons\/regular\/treadmill_regular.svg",
-      "oF" : 0,
-      "opt" : 0,
-      "plM" : 52780316221407,
-      "prP" : 0
-    },
-    "\/icons\/stroke\/rower_stroke.svg" : {
-      "ft" : 2097152,
-      "miP" : 0,
-      "oA" : 2,
-      "oAP" : "\/icons\/stroke\/rower_stroke.svg",
-      "oF" : 0,
-      "opt" : 0,
-      "plM" : 52780316221407,
-      "prP" : 0
-    },
-    "\/icons\/stroke\/treadmill_stroke.svg" : {
-      "ft" : 2097152,
-      "miP" : 0,
-      "oA" : 2,
-      "oAP" : "\/icons\/stroke\/treadmill_stroke.svg",
-      "oF" : 0,
-      "opt" : 0,
-      "plM" : 52780316221407,
-      "prP" : 0
-    },
-    "\/Life Fitness Icons\/code.js" : {
+    "\/code.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 0,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/Life Fitness Icons\/code-min.js",
+      "oAP" : "\/build\/code-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
     },
-    "\/Life Fitness Icons\/icons\/fill\/rower_fill.svg" : {
+    "\/icons\/rower_fill.svg" : {
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 2,
-      "oAP" : "\/Life Fitness Icons\/icons\/fill\/rower_fill.svg",
+      "oAP" : "\/build\/icons\/rower_fill.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,
       "prP" : 0
     },
-    "\/Life Fitness Icons\/icons\/fill\/treadmill_fill.svg" : {
+    "\/icons\/rower_light.svg" : {
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 2,
-      "oAP" : "\/Life Fitness Icons\/icons\/fill\/treadmill_fill.svg",
+      "oAP" : "\/build\/icons\/rower_light.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,
       "prP" : 0
     },
-    "\/Life Fitness Icons\/icons\/light\/rower_light.svg" : {
+    "\/icons\/rower_regular.svg" : {
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 2,
-      "oAP" : "\/Life Fitness Icons\/icons\/light\/rower_light.svg",
+      "oAP" : "\/build\/icons\/rower_regular.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,
       "prP" : 0
     },
-    "\/Life Fitness Icons\/icons\/light\/treadmill_light.svg" : {
+    "\/icons\/rower_stroke.svg" : {
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 2,
-      "oAP" : "\/Life Fitness Icons\/icons\/light\/treadmill_light.svg",
+      "oAP" : "\/build\/icons\/rower_stroke.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,
       "prP" : 0
     },
-    "\/Life Fitness Icons\/icons\/regular\/rower_regular.svg" : {
+    "\/icons\/treadmill_fill.svg" : {
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 2,
-      "oAP" : "\/Life Fitness Icons\/icons\/regular\/rower_regular.svg",
+      "oAP" : "\/build\/icons\/treadmill_fill.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,
       "prP" : 0
     },
-    "\/Life Fitness Icons\/icons\/regular\/treadmill_regular.svg" : {
+    "\/icons\/treadmill_light.svg" : {
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 2,
-      "oAP" : "\/Life Fitness Icons\/icons\/regular\/treadmill_regular.svg",
+      "oAP" : "\/build\/icons\/treadmill_light.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,
       "prP" : 0
     },
-    "\/Life Fitness Icons\/icons\/stroke\/rower_stroke.svg" : {
+    "\/icons\/treadmill_regular.svg" : {
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 2,
-      "oAP" : "\/Life Fitness Icons\/icons\/stroke\/rower_stroke.svg",
+      "oAP" : "\/build\/icons\/treadmill_regular.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,
       "prP" : 0
     },
-    "\/Life Fitness Icons\/icons\/stroke\/treadmill_stroke.svg" : {
+    "\/icons\/treadmill_stroke.svg" : {
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 2,
-      "oAP" : "\/Life Fitness Icons\/icons\/stroke\/treadmill_stroke.svg",
+      "oAP" : "\/build\/icons\/treadmill_stroke.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,
       "prP" : 0
     },
-    "\/Life Fitness Icons\/manifest.json" : {
+    "\/manifest.json" : {
       "ft" : 524288,
       "oA" : 1,
-      "oAP" : "\/Life Fitness Icons\/manifest-min.json",
+      "oAP" : "\/build\/manifest-min.json",
       "oF" : 0,
       "oO" : 1,
       "oS" : 1
     },
-    "\/Life Fitness Icons\/package.json" : {
-      "ft" : 524288,
-      "oA" : 1,
-      "oAP" : "\/Life Fitness Icons\/package-min.json",
-      "oF" : 0,
-      "oO" : 1,
-      "oS" : 1
-    },
-    "\/Life Fitness Icons\/README.md" : {
+    "\/README.md" : {
       "cB" : 0,
       "cS" : 0,
       "eF" : 1,
@@ -206,7 +126,7 @@
       "ft" : 4096,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/Life Fitness Icons\/README.html",
+      "oAP" : "\/build\/README.html",
       "oF" : 0,
       "oFM" : 0,
       "oS" : 0,
@@ -215,13 +135,47 @@
       "rFN" : 0,
       "uCM" : 0
     },
-    "\/Life Fitness Icons\/ui.html" : {
+    "\/scripts\/update-icons.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/build\/scripts\/update-icons-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/ui.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/ui-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
+    "\/ui.html" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/Life Fitness Icons\/ui.html",
+      "oAP" : "\/build\/ui.html",
       "oF" : 0
+    },
+    "\/ui.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/build\/ui-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
     }
   },
   "hooks" : [
@@ -235,7 +189,8 @@
     "displayValue" : "lf-icons",
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "brackets-glace",
-    "iconImageWasSetByUser" : 0
+    "iconImageWasSetByUser" : 0,
+    "lastBuiltDate" : 761778902.97281897
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
@@ -530,7 +485,7 @@
     "browserRefreshDelay" : 0,
     "browserslistString" : ">0.2%, last 2 versions, Firefox ESR, not dead",
     "buildEnvironment" : 0,
-    "buildFolderActive" : 0,
+    "buildFolderActive" : 1,
     "buildFolderName" : "build",
     "cleanBuild" : 1,
     "cssoForceMediaMerge" : 0,
@@ -2123,7 +2078,7 @@
     "webpPresets" : {
 
     },
-    "websiteRelativeRoot" : ""
+    "websiteRelativeRoot" : "build"
   },
   "settingsFileVersion" : "3"
 }

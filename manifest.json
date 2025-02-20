@@ -1,18 +1,8 @@
 {
-  "name": "Life Fitness Icons",
-  "id": "1473788316015881865",
+  "name": "My Figma Plugin",
+  "id": "my-figma-plugin",
   "api": "1.0.0",
   "main": "code.js",
-  "capabilities": [],
-  "enableProposedApi": false,
-  "documentAccess": "dynamic-page",
-  "editorType": [
-    "figma"
-  ],
   "ui": "ui.html",
-  "networkAccess": {
-    "allowedDomains": [
-      "none"
-    ]
-  }
+  "editorType": ["figma"]
 }

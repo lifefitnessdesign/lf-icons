@@ -1,19 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="ui.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icon Library</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 16px;
+      width: 400px;
+    }
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .icon-grid img {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <div>
-    <input type="text" id="search" placeholder="Search for icons...">
-    <select id="weight">
-      <option value="thin">Thin</option>
-      <option value="light">Light</option>
-      <option value="regular">Regular</option>
-      <option value="bold">Bold</option>
-    </select>
-    <div id="icon-container"></div>
-  </div>
-  <script src="main.js"></script>
+  <h1>Icon Library</h1>
+  <div class="icon-grid" id="iconGrid"></div>
+
+  <script>
+    const githubApiBaseURL = 'https://api.github.com/repos/lifefitnessdesign/lf-icons/contents/icons/';
+
+    function fetchIconsFromGitHub() {
+      fetch(githubApiBaseURL)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(files => {
+          const icons = files
+            .filter(file => file.name.endsWith('.svg')) // Filter to only SVG files
+            .map(file => file.download_url); // Extract download URL for each icon
+
+          renderIcons(icons); // Pass icon URLs to rendering function
+        })
+        .catch(err => console.error('Failed to load icons from GitHub:', err));
+    }
+
+    function renderIcons(iconUrls) {
+      const iconGrid = document.getElementById('iconGrid');
+      iconGrid.innerHTML = ''; // Clear the grid
+
+      iconUrls.forEach(iconUrl => {
+        const img = document.createElement('img');
+        img.src = iconUrl;  // Set the icon source to the GitHub raw URL
+        img.alt = 'icon';
+        img.draggable = true;  // Make icons draggable
+
+        // Add dragstart event to capture SVG data on drag
+        img.addEventListener('dragstart', (event) => {
+          fetch(iconUrl)
+            .then(response => response.text())
+            .then(svgContent => {
+              // Send the SVG data to Figma
+              parent.postMessage({ pluginMessage: { type: 'drag-icon', svg: svgContent } }, '*');
+            })
+            .catch(err => console.error('Failed to fetch SVG:', err));
+        });
+
+        iconGrid.appendChild(img);
+      });
+    }
+
+    // Fetch and display icons when the UI is loaded
+    fetchIconsFromGitHub();
+  </script>
 </body>
 </html>
