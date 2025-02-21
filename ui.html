@@ -100,14 +100,20 @@
 
           // Add dragstart event to capture SVG data on drag
           img.addEventListener('dragstart', (event) => {
-            fetch(icon.url)
-              .then(response => response.text())
-              .then(svgContent => {
-                // Send the SVG data to Figma
-                parent.postMessage({ pluginMessage: { type: 'drag-icon', svg: svgContent } }, '*');
-              })
-              .catch(err => console.error('Failed to fetch SVG:', err));
-          });
+          fetch(icon.url)
+            .then(response => response.text())
+            .then(svgContent => {
+              // Send the SVG content and the icon name to Figma
+              parent.postMessage({
+                pluginMessage: {
+                  type: 'drag-icon',
+                  svg: svgContent,
+                  name: icon.name.split('.svg')[0] // Send the icon name without the file extension
+                }
+              }, '*');
+            })
+            .catch(err => console.error('Failed to fetch SVG:', err));
+        });
 
           iconGrid.appendChild(img);
         });
@@ -125,6 +131,8 @@
     searchInput.addEventListener('input', () => {
       renderIcons(); // Re-render icons on search
     });
+
+    
   </script>
 </body>
 </html>
