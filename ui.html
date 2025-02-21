@@ -10,6 +10,9 @@
       padding: 16px;
       width: 400px;
     }
+    .dropdown {
+      margin-bottom: 16px;
+    }
     .icon-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -24,13 +27,25 @@
 </head>
 <body>
   <h1>Icon Library</h1>
+
+  <!-- Dropdown for selecting icon weight -->
+  <select id="weightSelect" class="dropdown">
+    <option value="light">Light</option>
+    <option value="regular">Regular</option>
+    <option value="stroke">Stroke</option>
+    <option value="fill">Fill</option>
+  </select>
+
   <div class="icon-grid" id="iconGrid"></div>
 
   <script>
     const githubApiBaseURL = 'https://api.github.com/repos/lifefitnessdesign/lf-icons/contents/icons/';
+    const iconGrid = document.getElementById('iconGrid');
+    const weightSelect = document.getElementById('weightSelect');
 
-    function fetchIconsFromGitHub() {
-      fetch(githubApiBaseURL)
+    function fetchIconsFromGitHub(weight) {
+      const weightFolderURL = `${githubApiBaseURL}${weight}/`; // Fetch based on selected weight
+      fetch(weightFolderURL)
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -48,7 +63,6 @@
     }
 
     function renderIcons(iconUrls) {
-      const iconGrid = document.getElementById('iconGrid');
       iconGrid.innerHTML = ''; // Clear the grid
 
       iconUrls.forEach(iconUrl => {
@@ -73,7 +87,13 @@
     }
 
     // Fetch and display icons when the UI is loaded
-    fetchIconsFromGitHub();
+    fetchIconsFromGitHub(weightSelect.value);
+
+    // Update the icon list when the weight changes
+    weightSelect.addEventListener('change', (event) => {
+      const selectedWeight = event.target.value;
+      fetchIconsFromGitHub(selectedWeight); // Fetch icons based on selected weight
+    });
   </script>
 </body>
 </html>
