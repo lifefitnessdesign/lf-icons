@@ -10,31 +10,49 @@
       padding: 16px;
       width: 400px;
     }
-    .dropdown {
+    .dropdown, .search-bar {
+      padding: 8px;
       margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .dropdown {
+      width: 30%;
+    }
+    .search-bar {
+      width: 60%;
+
     }
     .icon-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0px;
     }
     .icon-grid img {
-      width: 40px;
-      height: 40px;
+      width: 34px;
+      height: 34px;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
+  
   <h1>Icon Library</h1>
 
-  <!-- Dropdown for selecting icon weight -->
-  <select id="weightSelect" class="dropdown">
-    <option value="light">Light</option>
-    <option value="regular">Regular</option>
-    <option value="stroke">Stroke</option>
-    <option value="fill">Fill</option>
-  </select>
+  <div>
+
+    <!-- Search bar for filtering icons by name -->
+    <input type="text" id="searchInput" class="search-bar" placeholder="Search icons by name..." />
+
+     <!-- Dropdown for selecting icon weight -->
+    <select id="weightSelect" class="dropdown">
+      <option value="light">Light</option>
+      <option value="regular">Regular</option>
+      <option value="stroke">Stroke</option>
+      <option value="fill">Fill</option>
+    </select>
+
+  </div>
 
   <div class="icon-grid" id="iconGrid"></div>
 
@@ -42,6 +60,9 @@
     const githubApiBaseURL = 'https://api.github.com/repos/lifefitnessdesign/lf-icons/contents/icons/';
     const iconGrid = document.getElementById('iconGrid');
     const weightSelect = document.getElementById('weightSelect');
+    const searchInput = document.getElementById('searchInput');
+
+    let allIcons = [];
 
     function fetchIconsFromGitHub(weight) {
       const weightFolderURL = `${githubApiBaseURL}${weight}/`; // Fetch based on selected weight
@@ -53,46 +74,56 @@
           return response.json();
         })
         .then(files => {
-          const icons = files
+          allIcons = files
             .filter(file => file.name.endsWith('.svg')) // Filter to only SVG files
-            .map(file => file.download_url); // Extract download URL for each icon
+            .map(file => ({
+              name: file.name,
+              url: file.download_url
+            })); // Store name and URL for each icon
 
-          renderIcons(icons); // Pass icon URLs to rendering function
+          renderIcons(); // Initial rendering of icons
         })
         .catch(err => console.error('Failed to load icons from GitHub:', err));
     }
 
-    function renderIcons(iconUrls) {
+    function renderIcons() {
+      const searchTerm = searchInput.value.toLowerCase(); // Get search term in lowercase
       iconGrid.innerHTML = ''; // Clear the grid
 
-      iconUrls.forEach(iconUrl => {
-        const img = document.createElement('img');
-        img.src = iconUrl;  // Set the icon source to the GitHub raw URL
-        img.alt = 'icon';
-        img.draggable = true;  // Make icons draggable
+      allIcons
+        .filter(icon => icon.name.toLowerCase().includes(searchTerm)) // Filter icons based on search term
+        .forEach(icon => {
+          const img = document.createElement('img');
+          img.src = icon.url;
+          img.alt = icon.name;
+          img.draggable = true;  // Make icons draggable
 
-        // Add dragstart event to capture SVG data on drag
-        img.addEventListener('dragstart', (event) => {
-          fetch(iconUrl)
-            .then(response => response.text())
-            .then(svgContent => {
-              // Send the SVG data to Figma
-              parent.postMessage({ pluginMessage: { type: 'drag-icon', svg: svgContent } }, '*');
-            })
-            .catch(err => console.error('Failed to fetch SVG:', err));
+          // Add dragstart event to capture SVG data on drag
+          img.addEventListener('dragstart', (event) => {
+            fetch(icon.url)
+              .then(response => response.text())
+              .then(svgContent => {
+                // Send the SVG data to Figma
+                parent.postMessage({ pluginMessage: { type: 'drag-icon', svg: svgContent } }, '*');
+              })
+              .catch(err => console.error('Failed to fetch SVG:', err));
+          });
+
+          iconGrid.appendChild(img);
         });
-
-        iconGrid.appendChild(img);
-      });
     }
 
     // Fetch and display icons when the UI is loaded
     fetchIconsFromGitHub(weightSelect.value);
 
-    // Update the icon list when the weight changes
+    // Update icons when weight selection changes
     weightSelect.addEventListener('change', (event) => {
-      const selectedWeight = event.target.value;
-      fetchIconsFromGitHub(selectedWeight); // Fetch icons based on selected weight
+      fetchIconsFromGitHub(event.target.value);
+    });
+
+    // Filter icons by name when typing in search input
+    searchInput.addEventListener('input', () => {
+      renderIcons(); // Re-render icons on search
     });
   </script>
 </body>
